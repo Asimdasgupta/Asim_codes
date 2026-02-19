@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Local Health Monitor{% endblock %}
+
+{% block content %}
+  <div class="hero">
+    <div class="page-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="muted">Today’s summary, recommendations, and simple trends stored locally.</p>
+      </div>
+      <div>
+        <a class="btn btn-primary" href="{{ url_for('checkin_page') }}">Start Daily Check-in</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <section class="col-main">
+      <div class="card accent-blue">
+        <div class="card-title">Today Overview</div>
+        {% if latest %}
+          <div class="stat-grid">
+            <div class="stat blue"><span class="k">Date</span><span class="v">{{ latest.entry_date }}</span></div>
+            <div class="stat teal"><span class="k">Steps</span><span class="v">{{ latest.steps or "—" }}</span></div>
+            <div class="stat purple"><span class="k">Sleep (hours)</span><span class="v">{{ latest.sleep_hours or "—" }}</span></div>
+            <div class="stat orange"><span class="k">Heart rate</span><span class="v">{{ latest.heart_rate or "—" }}</span></div>
+          </div>
+          <div class="kv" style="margin-top:12px;">
+            <div><span class="k">Calories</span><span class="v">{{ latest.calories or "—" }}</span></div>
+            <div><span class="k">Activity minutes</span><span class="v">{{ latest.activity_minutes or "—" }}</span></div>
+          </div>
+          <div class="muted small">Last check-in saved at {{ latest.created_at }}</div>
+        {% else %}
+          <div class="empty">
+            <div class="empty-title">No check-ins yet</div>
+            <div class="muted">Add your first daily check-in to start getting recommendations.</div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="card accent-teal">
+        <div class="card-title">Recent Check-ins</div>
+        {% if recent %}
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Steps</th>
+                <th>Sleep</th>
+                <th>HR</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for e in recent %}
+                <tr>
+                  <td>{{ e.entry_date }}</td>
+                  <td>{{ e.steps or "—" }}</td>
+                  <td>{{ e.sleep_hours or "—" }}</td>
+                  <td>{{ e.heart_rate or "—" }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <div class="muted">No history yet.</div>
+        {% endif %}
+      </div>
+    </section>
+
+    <aside class="col-side">
+      <div class="card accent-purple">
+        <div class="card-title">Recommendations</div>
+        {% if model_score is not none %}
+          <div class="muted small">Model risk score: <strong>{{ '%.2f'|format(model_score) }}</strong></div>
+        {% else %}
+          <div class="muted small">Model: not trained yet (rule-based recommendations only).</div>
+          <form method="post" action="{{ url_for('train') }}" style="margin-top:10px;">
+            <button class="btn btn-secondary" type="submit">Train Model (Local)</button>
+          </form>
+        {% endif %}
+
+        <div class="reco-list">
+          {% for r in recommendations %}
+            <div class="reco priority-{{ r.priority }}">
+              <div class="reco-top">
+                <div class="reco-title">{{ r.title }}</div>
+                <span class="badge badge-{{ r.priority }}">{{ r.priority }}</span>
+              </div>
+              <div class="reco-text">{{ r.text }}</div>
+              {% if r.rationale %}
+                <details class="why">
+                  <summary>Why?</summary>
+                  <div class="muted">{{ r.rationale }}</div>
+                </details>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="card accent-orange">
+        <div class="card-title">Your Baselines</div>
+        <div class="kv">
+          <div><span class="k">Age</span><span class="v">{{ profile.age or "—" }}</span></div>
+          <div><span class="k">Weight (kg)</span><span class="v">{{ profile.weight_kg or "—" }}</span></div>
+          <div><span class="k">Height (cm)</span><span class="v">{{ profile.height_cm or "—" }}</span></div>
+          <div><span class="k">BP</span><span class="v">{{ profile.bp_systolic or "—" }}/{{ profile.bp_diastolic or "—" }}</span></div>
+          <div><span class="k">Sugar (mg/dL)</span><span class="v">{{ profile.sugar_mg_dl or "—" }}</span></div>
+        </div>
+        <div class="small muted">Edit in Medical Profile if you want more personalization.</div>
+      </div>
+    </aside>
+  </div>
+{% endblock %}

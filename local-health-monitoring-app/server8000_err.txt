@@ -1,0 +1,55 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.7:8000
+Press CTRL+C to quit
+127.0.0.1 - - [13/Feb/2026 21:00:43] "GET /?ide_webview_request_time=1770996641735 HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:00:43] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:00:43] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:01:11] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:10] "GET /profile HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:10] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 21:59:10] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:59:28] "GET /checkin HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:28] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 21:59:28] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:59:46] "GET /checkin HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:46] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 21:59:46] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:59:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:48] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 21:59:48] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:59:50] "GET /checkin HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:50] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 21:59:50] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:59:52] "GET /profile HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 21:59:52] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 21:59:52] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 21:59:53] "GET /export HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:00:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:00:15] "GET /static/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [13/Feb/2026 22:00:15] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:00:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:00:18] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:00:18] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:03:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:03:17] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:03:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:03:25] "GET /export HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:08:02] "GET /?ide_webview_request_time=1771000682495 HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:08:02] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:08:02] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:08:29] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:08:30] "HEAD /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:11:42] "GET /?ide_webview_request_time=1771000902558 HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:11:42] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:11:42] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:12:03] "HEAD /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:12:34] "GET /?ide_webview_request_time=1771000902558 HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:12:35] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:12:35] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:12:37] "GET /?ide_webview_request_time=1771000902558 HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:12:37] "GET /static/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:12:37] "GET /@vite/client HTTP/1.1" 404 -
+127.0.0.1 - - [13/Feb/2026 22:13:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [13/Feb/2026 22:13:12] "GET /static/styles.css HTTP/1.1" 200 -

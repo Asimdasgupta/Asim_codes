@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Daily Check-in | Local Health Monitor{% endblock %}
+
+{% block content %}
+  <div class="hero">
+    <div class="page-header">
+      <div>
+        <h1>Daily Check-in</h1>
+        <p class="muted">Log today’s wellness signals and get immediate recommendations.</p>
+      </div>
+    </div>
+  </div>
+
+  <form class="form" method="post" action="{{ url_for('checkin_save') }}">
+    <div class="card accent-blue">
+      <div class="card-title">Today</div>
+      <div class="form-grid">
+        <label>
+          <div class="label">Date</div>
+          <input name="entry_date" type="date" required />
+        </label>
+        <label>
+          <div class="label">Steps</div>
+          <input name="steps" type="number" min="0" placeholder="e.g., 6500" />
+        </label>
+        <label>
+          <div class="label">Sleep hours</div>
+          <input name="sleep_hours" type="number" step="0.1" min="0" max="24" placeholder="e.g., 7.5" />
+        </label>
+        <label>
+          <div class="label">Heart rate</div>
+          <input name="heart_rate" type="number" min="0" placeholder="e.g., 72" />
+        </label>
+        <label>
+          <div class="label">Calories</div>
+          <input name="calories" type="number" min="0" placeholder="e.g., 2100" />
+        </label>
+        <label>
+          <div class="label">Activity minutes</div>
+          <input name="activity_minutes" type="number" min="0" placeholder="e.g., 30" />
+        </label>
+      </div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-title">Wellness (Optional)</div>
+      <div class="form-grid">
+        <label>
+          <div class="label">Sleep quality (1-5)</div>
+          <input name="sleep_quality" type="number" min="1" max="5" />
+        </label>
+        <label>
+          <div class="label">Mood (1-5)</div>
+          <input name="mood" type="number" min="1" max="5" />
+        </label>
+        <label>
+          <div class="label">Stress (1-5)</div>
+          <input name="stress" type="number" min="1" max="5" />
+        </label>
+        <label>
+          <div class="label">Pain (0-10)</div>
+          <input name="pain" type="number" min="0" max="10" />
+        </label>
+      </div>
+    </div>
+
+    <div class="card accent-purple">
+      <div class="card-title">Vitals (Optional)</div>
+      <div class="form-grid">
+        <label>
+          <div class="label">BP Systolic</div>
+          <input name="bp_systolic" type="number" />
+        </label>
+        <label>
+          <div class="label">BP Diastolic</div>
+          <input name="bp_diastolic" type="number" />
+        </label>
+        <label>
+          <div class="label">Sugar (mg/dL)</div>
+          <input name="sugar_mg_dl" type="number" step="0.1" />
+        </label>
+      </div>
+      <label>
+        <div class="label">Notes</div>
+        <textarea name="notes" rows="4" placeholder="Anything to remember about today..."></textarea>
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Save & Return to Dashboard</button>
+    </div>
+  </form>
+{% endblock %}

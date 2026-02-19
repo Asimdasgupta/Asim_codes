@@ -1,0 +1,12 @@
+{
+  "mastery": {
+    "algorithms": 0.6,
+    "data structures": 0.3
+  },
+  "completed_courses": [],
+  "preferences": {
+    "pace": "moderate",
+    "interests": ["algorithms", "graph algorithms"],
+    "constraints": { "max_hours_per_week": 8 }
+  }
+}

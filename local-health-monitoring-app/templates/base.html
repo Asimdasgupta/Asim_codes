@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Local Health Monitor{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">H</div>
+          <div class="brand-name">Local Health Monitor</div>
+        </div>
+        <nav class="nav">
+          <a class="nav-link{% if request.endpoint == 'dashboard' %} active{% endif %}" href="{{ url_for('dashboard') }}">Dashboard</a>
+          <a class="nav-link{% if request.endpoint in ['checkin_page', 'checkin_save'] %} active{% endif %}" href="{{ url_for('checkin_page') }}">Daily Check-in</a>
+          <a class="nav-link{% if request.endpoint in ['profile_page', 'profile_save'] %} active{% endif %}" href="{{ url_for('profile_page') }}">Medical Profile</a>
+          <a class="btn btn-secondary" href="{{ url_for('export_data') }}">Export</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="flash">
+            {% for m in messages %}
+              <div class="flash-item">{{ m }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+
+      <footer class="footer">
+        <div class="footer-line"></div>
+        <div>Local-first demo app (educational). Recommendations are general wellness suggestions, not medical advice.</div>
+      </footer>
+    </main>
+  </body>
+</html>

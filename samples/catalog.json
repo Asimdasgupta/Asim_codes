@@ -1,0 +1,27 @@
+{
+  "courses": [
+    {
+      "id": "cs101",
+      "title": "Intro to CS",
+      "topics": ["algorithms", "data structures", "complexity"],
+      "prerequisites": [],
+      "modules": [
+        { "id": "cs101-m1", "title": "Algorithms Basics", "topics": ["algorithms"], "hours": 3 },
+        { "id": "cs101-m2", "title": "Data Structures", "topics": ["data structures"], "hours": 4 },
+        { "id": "cs101-m3", "title": "Complexity Intro", "topics": ["complexity"], "hours": 5 }
+      ],
+      "hours": 12
+    },
+    {
+      "id": "cs201",
+      "title": "Advanced Algorithms",
+      "topics": ["graph algorithms", "complexity"],
+      "prerequisites": ["algorithms", "data structures", "complexity"],
+      "modules": [
+        { "id": "cs201-m1", "title": "Graph Algorithms", "topics": ["graph algorithms"], "hours": 6 },
+        { "id": "cs201-m2", "title": "Advanced Complexity", "topics": ["complexity"], "hours": 6 }
+      ],
+      "hours": 12
+    }
+  ]
+}

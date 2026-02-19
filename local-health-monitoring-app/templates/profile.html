@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Medical Profile | Local Health Monitor{% endblock %}
+
+{% block content %}
+  <div class="hero">
+    <div class="page-header">
+      <div>
+        <h1>Medical Profile</h1>
+        <p class="muted">Your baseline and medical history used to contextualize recommendations.</p>
+      </div>
+    </div>
+  </div>
+
+  <form class="form" method="post" action="{{ url_for('profile_save') }}">
+    <div class="card accent-orange">
+      <div class="card-title">Baselines</div>
+      <div class="form-grid">
+        <label>
+          <div class="label">Age</div>
+          <input name="age" type="number" value="{{ profile.age or '' }}" min="0" max="120" />
+        </label>
+        <label>
+          <div class="label">Weight (kg)</div>
+          <input name="weight_kg" type="number" step="0.1" value="{{ profile.weight_kg or '' }}" />
+        </label>
+        <label>
+          <div class="label">Height (cm)</div>
+          <input name="height_cm" type="number" step="0.1" value="{{ profile.height_cm or '' }}" />
+        </label>
+        <label>
+          <div class="label">BP Systolic</div>
+          <input name="bp_systolic" type="number" value="{{ profile.bp_systolic or '' }}" />
+        </label>
+        <label>
+          <div class="label">BP Diastolic</div>
+          <input name="bp_diastolic" type="number" value="{{ profile.bp_diastolic or '' }}" />
+        </label>
+        <label>
+          <div class="label">Sugar (mg/dL)</div>
+          <input name="sugar_mg_dl" type="number" step="0.1" value="{{ profile.sugar_mg_dl or '' }}" />
+        </label>
+      </div>
+      <div class="muted small">All fields are optional if you don’t know them.</div>
+    </div>
+
+    <div class="card accent-purple">
+      <div class="card-title">History</div>
+      <label>
+        <div class="label">Past diseases (comma separated)</div>
+        <input name="past_diseases" type="text" value="{{ profile.past_diseases or '' }}" placeholder="e.g., asthma, hypertension" />
+      </label>
+      <label>
+        <div class="label">Medications (comma separated)</div>
+        <input name="medications" type="text" value="{{ profile.medications or '' }}" placeholder="e.g., metformin 500mg" />
+      </label>
+      <label>
+        <div class="label">Notes</div>
+        <textarea name="notes" rows="4" placeholder="Anything important...">{{ profile.notes or '' }}</textarea>
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Save Profile</button>
+      <a class="btn btn-secondary" href="{{ url_for('export_data') }}">Export JSON</a>
+    </div>
+  </form>
+{% endblock %}

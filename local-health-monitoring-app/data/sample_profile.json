@@ -1,0 +1,12 @@
+{
+  "age": 34,
+  "weight_kg": 78.5,
+  "height_cm": 175.0,
+  "bp_systolic": 128,
+  "bp_diastolic": 82,
+  "sugar_mg_dl": 105.0,
+  "past_diseases": "asthma",
+  "medications": "albuterol (as needed)",
+  "notes": "This is demo data for the local app."
+}
+
